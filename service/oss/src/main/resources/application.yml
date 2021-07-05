@@ -1,0 +1,32 @@
+# 端口号
+server:
+  port: 8004
+
+spring:
+  # 服务名
+  application:
+    name: oss-api
+  # 设置最大文件上传
+  servlet:
+    multipart:
+      # 单个文件大小
+      max-file-size: 10MB
+      # 单次请求总文件大小
+      max-request-size: 100MB
+  # 当前环境
+  profiles:
+    active: dev
+  # nacos服务地址
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+# 阿里云OSS
+aliyun:
+  oss:
+    file:
+      endpoint: oss-cn-shanghai.aliyuncs.com
+      keyid: LTAI4G9S22aJabEZsmAtg4AM
+      keysecret: C71bmyiFDNTpna4jNZGMsI3opdEPRG
+      bucketname: xzx-oep

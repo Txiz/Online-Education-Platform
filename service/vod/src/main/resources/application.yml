@@ -1,0 +1,28 @@
+# 端口号
+server:
+  port: 8005
+
+spring:
+  # 服务名
+  application:
+    name: vod-api
+  # 当前环境
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      # 最大上传单个文件大小，默认1M
+      max-file-size: 1024MB
+      # 最大总上传的数据大小，默认10M
+      max-request-size: 1024MB
+  cloud:
+    nacos:
+      discovery:
+        # nacos服务地址
+        server-addr: 127.0.0.1:8848
+# 阿里云OSS
+aliyun:
+  vod:
+    file:
+      keyid: LTAI4G9S22aJabEZsmAtg4AM
+      keysecret: C71bmyiFDNTpna4jNZGMsI3opdEPRG

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzx.education.mapper.CourseMapper">
+    <select id="listCourseIdsByPeopleName" resultType="Integer">
+        select tb.course_id
+        from tb_course tb
+                 left join tb_people_course tpc on tb.course_id = tpc.course_id
+                 left join tb_people tp on tp.people_id = tpc.people_id
+        where tp.people_name = #{peopleName}
+    </select>
+    <select id="listCourseIds" resultType="Integer">
+        select tb.course_id
+        from tb_course tb
+    </select>
+</mapper>

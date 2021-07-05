@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzx.admin.mapper.RoleMapper">
+    <resultMap id="roleMap" type="com.xzx.admin.entity.Role">
+        <id column="role_id" property="roleId"/>
+        <result column="role_name" property="roleName"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="is_delete" property="isDelete"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+    <select id="getRolesByUserId" resultMap="roleMap">
+        select tr.role_id,
+               role_name,
+               nick_name,
+               is_delete,
+               create_time,
+               update_time
+        from tb_role tr
+                 left join tb_user_role tur on tr.role_id = tur.role_id
+        where tur.user_id = #{userId}
+          and tr.is_delete = 0
+    </select>
+
+    <select id="getRolesByApiId" resultMap="roleMap">
+        select tr.role_id,
+               role_name,
+               nick_name,
+               is_delete,
+               create_time,
+               update_time
+        from tb_role tr
+                 left join tb_role_api tra on tr.role_id = tra.role_id
+        where tra.api_id = #{apiId}
+    </select>
+</mapper>
