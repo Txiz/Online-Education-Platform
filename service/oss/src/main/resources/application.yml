@@ -27,6 +27,6 @@ aliyun:
   oss:
     file:
       endpoint: oss-cn-shanghai.aliyuncs.com
-      keyid: LTAI4G9S22aJabEZsmAtg4AM
-      keysecret: C71bmyiFDNTpna4jNZGMsI3opdEPRG
-      bucketname: xzx-oep
+      keyid:
+      keysecret:
+      bucketname:
